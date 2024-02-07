@@ -123,5 +123,15 @@ public class PracticeController
     }
 
     // TODO: create a GET API that returns a random resource
+    @GetMapping("/api/random_pizza")
+    String getRandomPizza()
+    {
+        Pizza newPizza = new Pizza();
 
+        String valueReturnedToBrowser =
+                "You should order a " + newPizza.getRandomPizza() + " pizza!<br>" +
+                "See getRandomPizza() to make changes to the webpage output seen here.";
+
+        return valueReturnedToBrowser;
+    }
 }
