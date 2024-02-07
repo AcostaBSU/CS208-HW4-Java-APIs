@@ -69,9 +69,33 @@ public class PracticeController
         return valueReturnedToClient;
     }
 
-
     // TODO: create a PATCH route
+    @PatchMapping("/{bsu_username}/update_profile")
+    String patchUpdateProfile(
+            @PathVariable("bsu_username") String bsu_username,
+            @RequestParam("theme") String theme,
+            @RequestParam("language_code") String language_code
+    )
+    {
+        System.out.println("PracticeController.patchUpdateProfile - START");
+        System.out.println("Path variable received from URL");
+        System.out.println("bsu_username  = " + bsu_username);
+        System.out.println("Parameters received in the body of the PATCH request:");
+        System.out.println("theme         = " + theme);
+        System.out.println("language_code = " + language_code);
+        System.out.println("PracticeController.patchUpdateProfile - END");
 
+        String valueReturnedToClient =
+                "Path variable received in URL of the patch request:\n" +
+                        "bsu_username   = " + bsu_username + "\n\n" +
+                        "Parameter received in the body of the PATCH request:\n" +
+                        "theme          = " + theme + "\n" +
+                        "language_code  = " + language_code + "\n\n" +
+                        "This REST API route would patch user " + bsu_username + " with the theme and language code specified in the parameters.\n\n" +
+                        "Find me at PracticeController.patchUpdateProfile()";
+
+        return valueReturnedToClient;
+    }
 
     // TODO: create a DELETE route
 
